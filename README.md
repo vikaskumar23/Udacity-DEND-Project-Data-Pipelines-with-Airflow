@@ -6,6 +6,7 @@ In this project ETL Pipeline is automated using an orchestration tool called ```
 The source data resides in S3 and needs to be processed in Sparkify's data warehouse in Amazon Redshift. The source datasets consist of JSON logs that tell about user activity in the application and JSON metadata about the songs the users listen to.
 
 ## Airflow Overview
+![Airflow Logo](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Pipelines-with-Airflow/blob/master/airflow_64x64_logo.png)
 
 Airflow is a ```Workflow engine``` which means:
 
@@ -42,7 +43,7 @@ And below is an example of what a single song file, TRAABJL12903CDCF1A.json, loo
 ## Data Model
 Using the song and log datasets, data is transformed into Star Schema, so that it can be queries easily and understandable to analysts and business users.
 First Data is fetched from S3 bucket to staging tables.
-![Staging Tables](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Warehouse-on-Redshift/blob/master/staging_tables.PNG)
+![Staging Tables](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Pipelines-with-Airflow/blob/master/staging_tables.PNG)
 
 Then after some transformations data is loaded into star Schema. Some transformations include:
 - Date data is divided in chunks to create date dimension.
@@ -50,7 +51,7 @@ Then after some transformations data is loaded into star Schema. Some transforma
 - Duplicate data is removed before transforming to star schema.
 
 The resulting star schema consists of one fact table and four dimension tables.
-![Data Model](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Warehouse-on-Redshift/blob/master/dbmodel.png)
+![Data Model](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Pipelines-with-Airflow/blob/master/dbmodel.png)
 ##### Fact Table
 - **songplays:** records in log data associated with song plays i.e. records with page ```NextSong```
     - **songplay_id:** unique id for each songplay event
@@ -92,9 +93,9 @@ The resulting star schema consists of one fact table and four dimension tables.
     - **weekday:** weekday of event
 
 ## ETL Pipeline DAG
-![Dag]()
+![Dag](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Pipelines-with-Airflow/blob/master/dag.PNG)
 
-![Dag Run]()
+![Dag Run](https://github.com/vikaskumar23/Udacity-DEND-Project-Data-Pipelines-with-Airflow/blob/master/dagrun.png)
 
 The pipeline is divided in mainly 5 tasks:
 1. All the required staging, fact and dimension tables are created.
